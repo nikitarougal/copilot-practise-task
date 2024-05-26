@@ -1,0 +1,21 @@
+<template>
+  <template lwc:if={project}>
+    <lightning-layout vertical-align="center">
+      <lightning-layout-item padding="around-small">
+        <h3>Project Name: {project.Name}</h3>
+        <p>Starus: {project.Status__c}</p>
+        <p>Start Date: {project.StartDate__c}</p>
+        <p>End Date: {project.EndDate__c}</p>
+        <p>Project Budget: {project.Budget__c}</p>
+      </lightning-layout-item>
+    </lightning-layout>
+    <!-- Button to log an issue for the project -->
+    <lightning-button
+      label="Log Issue"
+      slot="footer"
+      onclick={handleLogIssue}
+      data-id={project.Id}
+    ></lightning-button>
+  </template>
+  <template lwc:else><p>No project data available.</p></template>
+</template>
